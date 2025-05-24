@@ -1,0 +1,38 @@
+<h1>Hello, World!</h1>
+@if (exibirInfoSecreta) {
+  <h2>Informação Secreta: 123654</h2>
+}
+
+<nav>
+  <a
+    class="button"
+    routerLink="hotels"
+    routerLinkActive="activeButton"
+    ariaCurrentWhenActive="page">
+    Hoteís
+  </a>
+  <a
+    class="button"
+    routerLink="login"
+    routerLinkActive="activeButton"
+    ariaCurrentWhenActive="page">
+  Login
+  </a>
+</nav>
+
+<ul>
+  @for (hotel of hoteis; track $index) {
+    <li>{{hotel}}</li>
+  } @empty {
+    <li>Não há hoteis disponíveis!</li>
+  }
+</ul>
+
+<!-- <input [value]="nomeHotel()" (input)="atualizarHotel($event)" placeholder="Digite o nome do Hotel" /> -->
+<input [(ngModel)]="nomeHotel" placeholder="Digite o nome do Hotel" />
+
+<button (click)="limparNgModel()">Limpar NgModel</button>
+<button (click)="limparHoteis()">Zerar lista</button>
+<button (click)="exibirHotel()">Exibir hotel</button>
+
+<router-outlet />
