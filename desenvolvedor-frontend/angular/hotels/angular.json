@@ -24,7 +24,8 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              }
+              },
+              "src/ngsw-worker.js"
             ],
             "styles": [
               "src/styles.css"
