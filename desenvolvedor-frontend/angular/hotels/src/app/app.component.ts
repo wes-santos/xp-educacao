@@ -18,7 +18,7 @@ export class AppComponent {
   exibirInfoSecreta: boolean = true;
   hoteis: string[] = ["Hotel SP", "Hotel RJ", "Hotel MG", "Hotel SLC"];
   nomeHotel: ModelSignal<string> = model("Salt Lake Hotel");
-
+ 
   limparHoteis() {
     this.hoteis = [];
   }
