@@ -1,0 +1,34 @@
+[
+  {
+    "id": "1",
+    "title": "O pequeno príncipe",
+    "author": {
+      "id": "a1",
+      "name": "Antonie"
+    }
+  },
+  {
+    "id": "2",
+    "title": "Dom Quixote",
+    "author": {
+      "id": "a2",
+      "name": "Miguel de Cervantes"
+    }
+  },
+  {
+    "id": "3",
+    "title": "A Divina Comédia",
+    "author": {
+      "id": "a3",
+      "name": "Dante"
+    }
+  },
+  {
+    "id": "4",
+    "title": "Novo livro",
+    "author": {
+      "id": "a4",
+      "name": "Weslley Santos"
+    }
+  }
+]
