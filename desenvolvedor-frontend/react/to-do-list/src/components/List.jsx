@@ -16,7 +16,7 @@ function List({ listTitle, listItems, children }) {
             <h2 className={styles.title}>{listTitle}</h2>
             <ol>
                 {listItems.map((x, y) => {
-                    return <ListItem item={x} index={y} />
+                    return <ListItem item={x} index={y} key={y} />
                 })}
             </ol>
         </>
