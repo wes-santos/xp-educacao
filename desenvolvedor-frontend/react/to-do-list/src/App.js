@@ -1,49 +1,48 @@
 import './App.css';
 import CheckList from './components/CheckList';
 import Header from './components/Header';
-// import List from './components/List';
 import { useState, useEffect } from 'react';
 
 const tasksTitle = "Work Tasks";
 
+
+const saveTasksListInLocalStorage = (tasks) => {
+    localStorage.setItem("savedTasks", JSON.stringify(tasks));
+};
+
+
 function App() {
   const [inputTask, setInputTask] = useState("");
-  const [tasks, setTasks] = useState([
-    { completed: false, content: "Create new report" },
-    { completed: false, content: "Write informative email" },
-    { completed: false, content: "Organize Documents" },
-    { completed: false, content: "Prepare budget spreadsheet" },
-    { completed: false, content: "Read JS Book" },
-    { completed: false, content: "Study Algebra" },
-    { completed: false, content: "Do homework" },
-    { completed: false, content: "Create expeses spreadsheet" },
-  ]);
+  const [tasks, setTasks] = useState([]);
 
-  // useEffect(() => {
-  //   let savedTasks = localStorage.getItem("savedTasks") || "[]";
-  //   savedTasks = JSON.parse(savedTasks);
-  //   setTasks(savedTasks);
-  // }, [])
+  useEffect(() => {
+    let savedTasks = localStorage.getItem("savedTasks") || "[]";
+    savedTasks = JSON.parse(savedTasks);
+    setTasks(savedTasks);
+  }, [])
 
   const handleTaskChange = (event) => {
     setInputTask(event.target.value);
   }
 
   const handleAddTask = (_) => {
-    setTasks((p) => [...p, { completed: false, content: inputTask }]);
+    let tasksList = [...tasks, { completed: false, content: inputTask }]
+    setTasks(tasksList);
     setInputTask("");
-    // localStorage.setItem("savedTasks", JSON.stringify(tasks));
+    saveTasksListInLocalStorage(tasksList);
   }
 
   const handleDeleteTask = (index) => {
     tasks.splice(index, 1);
     setTasks([...tasks]);
+    saveTasksListInLocalStorage(tasks);
   }
 
   const handleCheckChange = (index) => {
     tasks[index].completed = !tasks[index].completed;
     console.log(tasks[index]);
     setTasks([...tasks]);
+    saveTasksListInLocalStorage(tasks);
   }
 
   return (
