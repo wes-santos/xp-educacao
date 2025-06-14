@@ -1,0 +1,48 @@
+:root {
+  --bkg-primary: hsl(0, 0%, 98%);
+  --bkg-secondary: hsl(236, 33%, 92%);
+  --lightGreyishBlue: hsl(233, 11%, 84%);
+  --txt-primary: hsl(236, 9%, 61%);
+  --txt-secondary: hsl(235, 19%, 35%);
+  --darkGreyishBlue: hsl(234, 11%, 52%);
+  --lightGrayishBlue: hsl(234, 39%, 85%);
+  --link-blue: hsl(228, 45%, 44%);
+
+  --bkg-primary-dark: hsl(235, 21%, 11%);
+  --bkg-secondary-dark: hsl(235, 24%, 19%);
+  --lightGrayishBlue: hsl(234, 29%, 85%);
+  --lightGrayishBlueHover: hsl(236, 33%, 92%);
+  --darkGrayishBlue: hsl(234, 11%, 52%);
+  --secondary-drk-gblue: hsl(237, 14%, 26%);
+}
+
+.App {
+  height: 200px;
+  background: url(../public/images/bg-mobile-light.jpg) no-repeat;
+  background-position: center center;
+}
+
+body {
+  font-size: 18px;
+  background-color: var(--bkg-secondary);
+}
+
+@media screen and (min-width: 376px) {
+  .App {
+    background: url(../public/images/bg-desktop-light.jpg) no-repeat;
+    background-position: 0 0;
+    background-size: cover;
+    height: 200px;
+    width: 100vw;
+  }
+}
+
+.visually-hidden {
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  white-space: nowrap;
+  width: 1px;
+}

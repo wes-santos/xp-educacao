@@ -1,0 +1,33 @@
+.form {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--bkg-primary);
+    padding: 0.5rem;
+
+    border-radius: 5px;
+    width: 95%;
+    height: 2.5rem;
+}
+
+.newTaskInput {
+    border: none;
+    font-family: inherit;
+    background-color: inherit;
+    width: 100%;
+}
+
+.newTaskInput:focus {
+    outline: 0;
+}
+
+@media screen and (min-width: 376px) {
+    .form {
+        height: 2.5rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .form {
+        height: 3.5rem;
+    }
+}
