@@ -1,8 +1,12 @@
-import React from 'react'
+import styles from "./ListFilter.module.css";
 
-function ListFilter() {
+function ListFilter({ handleShowActive, handleShowCompleted, handleShowAll }) {
   return (
-    <div>ListFilter</div>
+    <div className={styles.listFilters}>
+      <button onClick={handleShowAll} className={styles.button}>All</button>
+      <button onClick={handleShowActive} className={styles.button}>Active</button>
+      <button onClick={handleShowCompleted} className={styles.button}>Completed</button>
+    </div>
   )
 }
 

@@ -1,0 +1,74 @@
+.li {
+    list-style: none;
+    border-bottom: solid 1px var(--bkg-secondary);
+    padding: 1rem 0.15rem 2.5rem 0;
+    height: 2.5rem;
+}
+
+.taskItem {
+    padding-top: 0.3rem;
+}
+
+.taskItem {
+    cursor: pointer;
+}
+
+.taskLabelGroup {
+    color: var(--txt-secondary);
+    font-size: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+}
+
+.checkboxContainer {
+    display: flex;
+    align-items: center;
+}
+
+.inputTypeCheckbox {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+.checkbox {
+    height: 1.5rem;
+    width: 1.5rem;
+    background: var(--bkg-primary);
+    border: 1px #ddd solid;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+.checkbox:hover {
+    background: linear-gradient(to bottom right, #57ddff, #c058f3);
+    cursor: pointer;
+}
+
+.checkboxActive {
+    background: linear-gradient(to bottom right, #57ddff, #c058f3);
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.deleteButton {
+    background-color: transparent;
+    border: none;
+    font-family: inherit;
+    height: 1rem;
+    width: 1rem;
+}
+
+.deleteButton:hover {
+    cursor: pointer;
+}
+
+.deleteButtonIcon:hover {
+    fill: var(--link-blue);
+}
