@@ -18,6 +18,10 @@
     font-size: 1.5rem;
 }
 
+.themeToggle:hover {
+    cursor: pointer;
+}
+
 @media screen and (min-width: 376px) {
     .header {
         max-width: 480px;

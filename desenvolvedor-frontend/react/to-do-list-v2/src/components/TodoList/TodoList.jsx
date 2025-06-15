@@ -1,8 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
 import TaskInput from "../TaskInput";
 import TodoItem from "../TodoItem";
 import ListFilter from "../ListFilter";
 import styles from "./TodoList.module.css";
+import clsx from "clsx";
 
 function TodoList() {
   const [tasks, setTasks] = useState([
@@ -12,6 +14,8 @@ function TodoList() {
 
   const [shownTasks, setShownTasks] = useState([]);
   const [filterOption, setFilterOption] = useState("all");
+
+  const { theme } = useContext(ThemeContext);
 
   const [windowSize, setWindowSize] = useState({
     width: window.innerWidth,
@@ -98,7 +102,7 @@ function TodoList() {
     <div className={styles.wrapper}>
       <TaskInput addTask={addTask} />
 
-      <ul className={styles.todos}>
+      <ul className={clsx(styles.todos, theme === "dark" && styles.todosDark)}>
         {shownTasks.map((task, i) => (
           <TodoItem
             key={i}
@@ -109,12 +113,12 @@ function TodoList() {
         ))}
 
         {windowSize.width < 600 ? (
-          <div className={styles.itemsLeftClearContainer}>
+          <div className={clsx(styles.itemsLeftClearContainer, theme === "dark" && styles.itemsLeftClearContainerDark)}>
             <p>Items Left</p>
             <ClearCompletedButton />
           </div>
         ) : (
-          <div className={styles.itemsLeftClearContainer}>
+          <div className={clsx(styles.itemsLeftClearContainer, theme === "dark" && styles.itemsLeftClearContainerDark)}>
             <p>Items Left</p>
             <ListFilter
               handleShowActive={handleShownActive}

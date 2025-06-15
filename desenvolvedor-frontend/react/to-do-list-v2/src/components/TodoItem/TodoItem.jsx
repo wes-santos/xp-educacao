@@ -1,13 +1,17 @@
 import styles from "./TodoItem.module.css";
 
+import { useContext } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
 import { ReactComponent as IconCheck } from "../../images/icon-check.svg";
 import { ReactComponent as IconCross } from "../../images/icon-cross.svg";
 
 import clsx from "clsx";
 
 function TodoItem({ task, handleOnCheckTask, handleDeleteTask }) {
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <li className={styles.li}>
+    <li className={clsx(styles.li, theme === "dark" && styles.liDark)}>
       <div className={styles.taskLabelGroup}>
         <label htmlFor={task.id} className={styles.checkboxContainer}>
           <input
@@ -21,8 +25,8 @@ function TodoItem({ task, handleOnCheckTask, handleDeleteTask }) {
           <IconCheck
             className={
               task.checked
-                ? clsx(styles.checkbox, styles.checkboxActive)
-                : styles.checkbox
+                ? clsx(styles.checkbox, styles.checkboxActive, theme === "dark" && styles.checkboxDark)
+                : clsx(styles.checkbox, theme === "dark" && styles.checkboxDark)
             }
             viewBox="-5 -4 22 18"
           />

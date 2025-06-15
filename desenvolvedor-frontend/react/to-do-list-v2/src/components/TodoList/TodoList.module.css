@@ -17,6 +17,10 @@
     padding: 0.5rem;
 }
 
+.todosDark {
+    background-color: var(--bkg-primary-dark);
+}
+
 .itemsLeftClearContainer {
     display: flex;
     justify-content: space-between;
@@ -24,6 +28,10 @@
     background-color: var(--bkg-primary);
     height: 2.5rem; 
     font-size: 0.75rem;
+}
+
+.itemsLeftClearContainerDark {
+    background-color: var(--bkg-primary-dark);
 }
 
 .button {
