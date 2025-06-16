@@ -18,7 +18,7 @@
 }
 
 .todosDark {
-    background-color: var(--bkg-primary-dark);
+    background-color: var(--bkg-secondary-dark);
 }
 
 .itemsLeftClearContainer {
@@ -28,10 +28,11 @@
     background-color: var(--bkg-primary);
     height: 2.5rem; 
     font-size: 0.75rem;
+    padding-top: 0.5rem;
 }
 
 .itemsLeftClearContainerDark {
-    background-color: var(--bkg-primary-dark);
+    background-color: var(--bkg-secondary-dark);
 }
 
 .button {

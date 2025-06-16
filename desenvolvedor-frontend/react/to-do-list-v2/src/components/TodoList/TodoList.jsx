@@ -15,6 +15,8 @@ function TodoList() {
   const [shownTasks, setShownTasks] = useState([]);
   const [filterOption, setFilterOption] = useState("all");
 
+  const [draggingItemIndex, setDraggingItemIndex] = useState(null);
+
   const { theme } = useContext(ThemeContext);
 
   const [windowSize, setWindowSize] = useState({
@@ -98,6 +100,26 @@ function TodoList() {
     setFilterOption("completed");
   };
 
+  const handleDragStart = (e, id) => {
+    setDraggingItemIndex(id);
+    e.dataTransfer.effectAllowed = "move";
+  }
+
+  const handleDragOver = (id) => {
+    if (draggingItemIndex === id) return;
+
+    const newItems = [...tasks];
+    const dragginItem = newItems[draggingItemIndex];
+    newItems.splice(draggingItemIndex, 1);
+    newItems.splice(id, 0, dragginItem);
+    setDraggingItemIndex(id);
+    setTasks(newItems);
+  }
+
+  const handleDragEnd = () => {
+    setDraggingItemIndex(null);
+  }
+
   return (
     <div className={styles.wrapper}>
       <TaskInput addTask={addTask} />
@@ -107,19 +129,23 @@ function TodoList() {
           <TodoItem
             key={i}
             task={task}
+            index={i}
             handleDeleteTask={handleDeleteTask}
             handleOnCheckTask={handleOnCheckTask}
+            handleDragStart={handleDragStart}
+            handleDragOver={handleDragOver}
+            handleDragEnd={handleDragEnd}
           />
         ))}
 
         {windowSize.width < 600 ? (
           <div className={clsx(styles.itemsLeftClearContainer, theme === "dark" && styles.itemsLeftClearContainerDark)}>
-            <p>Items Left</p>
+            <p style={{ "color": theme === "dark" && "var(--darkGrayishBlue)" }}>Items Left</p>
             <ClearCompletedButton />
           </div>
         ) : (
           <div className={clsx(styles.itemsLeftClearContainer, theme === "dark" && styles.itemsLeftClearContainerDark)}>
-            <p>Items Left</p>
+            <p style={{ "color": theme === "dark" && "var(--darkGrayishBlue)" }}>Items Left</p>
             <ListFilter
               handleShowActive={handleShownActive}
               handleShowAll={handleShownAll}

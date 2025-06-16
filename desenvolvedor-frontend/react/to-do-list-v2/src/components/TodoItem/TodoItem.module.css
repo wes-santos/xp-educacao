@@ -11,9 +11,11 @@
 
 .taskItem {
     padding-top: 0.3rem;
+    font-size: 1rem;
+    color: var(--darkGrayishBlue);
 }
 
-.taskItem {
+.taskItem:hover {
     cursor: pointer;
 }
 
@@ -51,19 +53,21 @@
 }
 
 .checkboxDark {
-    background: var(--bkg-primary-dark);
+    background: var(--bkg-secondary-dark);
     border: 1px var(--secondary-drk-blue) solid;
 }
 
 .checkbox:hover {
     background: linear-gradient(to bottom right, #57ddff, #c058f3);
     cursor: pointer;
+    stroke: white;
 }
 
 .checkboxActive {
     background: linear-gradient(to bottom right, #57ddff, #c058f3);
     height: 1.5rem;
     width: 1.5rem;
+    stroke: white;
 }
 
 .deleteButton {

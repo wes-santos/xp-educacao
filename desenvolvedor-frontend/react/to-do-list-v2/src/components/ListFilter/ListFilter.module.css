@@ -9,6 +9,10 @@
     height: 2.5rem;
 }
 
+.listFiltersDark {
+    background-color: var(--bkg-secondary-dark);
+}
+
 .button {
     color: var(--txt-primary);
     font-size: 0.75rem;

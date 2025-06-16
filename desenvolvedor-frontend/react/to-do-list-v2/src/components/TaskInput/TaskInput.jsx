@@ -1,9 +1,13 @@
 import styles from "./TaskInput.module.css";
-import { useState } from "react";
+import clsx from "clsx";
+import { useState, useContext } from "react";
+
+import { ThemeContext } from "../../context/ThemeContext";
 
 
 function TaskInput({ addTask }) {
   const [newTask, setNewTask] = useState("");
+  const { theme } = useContext(ThemeContext);
   
   const handleInputChange = (event) => {
     setNewTask(event.target.value);
@@ -23,7 +27,7 @@ function TaskInput({ addTask }) {
   }
 
   return (
-    <form className={styles.form} onSubmit={handleOnSubmit}>
+    <form className={clsx(styles.form, theme === "dark" && styles.formDark)} onSubmit={handleOnSubmit}>
       <label htmlFor="new-task-input" className="visually-hidden">
         Enter new task
       </label>
@@ -32,7 +36,7 @@ function TaskInput({ addTask }) {
         id="new-task-input"
         placeholder="Create a new task..."
         autoComplete="off"
-        className={styles.newTaskInput}
+        className={clsx(styles.newTaskInput, theme === "dark" && styles.newTaskInputDark)}
         onChange={handleInputChange}
         value={newTask}
       />
